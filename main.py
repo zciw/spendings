@@ -1,20 +1,21 @@
 # main.py
-
-from fastapi import FastAPI
-from fastapi import FastAPI, Form
+from fastapi import FastAPI, Form, Request
 from fastapi.responses import JSONResponse
+from fastapi.templating import Jinja2Templates
 import csv
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 app = FastAPI()
 
 @app.get("/")
-def read_root():
-    return {"message": "Hello, FastAPI!"}
+def read_root(request: Request):
+    # Load the CSV file content
+    with open("data.csv", mode="r") as csvfile:
+        csv_content = list(csv.reader(csvfile))
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, query_param: str = None):
-    return {"item_id": item_id, "query_param": query_param}
-
+    return templates.TemplateResponse("index.html", {"request": request, "csv_content": csv_content})
 
 @app.post("/submit")
 async def submit_form(input1: str = Form(...), input2: str = Form(...)):

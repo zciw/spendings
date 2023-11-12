@@ -66,7 +66,4 @@ def send_email():
         server.login(email_address, email_password)
         server.sendmail(email_address, "abc@c.com", msg.as_string())
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000)
 
