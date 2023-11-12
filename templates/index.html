@@ -9,6 +9,21 @@
 </head>
 <body>
     <h1>CSV File Content</h1>
+
+    <!-- Form to submit inputs -->
+    <form method="post" action="/submit">
+        <label for="input1">Input 1:</label>
+        <input type="text" name="input1" id="input1" required>
+
+        <label for="input2">Input 2:</label>
+        <input type="text" name="input2" id="input2" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+
+    <!-- Display CSV content -->
     <table border="1">
         {% for row in csv_content %}
             <tr>
@@ -20,4 +35,3 @@
     </table>
 </body>
 </html>
-
