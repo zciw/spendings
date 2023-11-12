@@ -1,0 +1,14 @@
+# .gitignore
+
+# Virtual environment
+venv/
+myenv/
+# Compiled Python files
+__pycache__/
+
+
+# Ignore the Jinja2 cache directory (if generated)
+__pycache__/
+
+# Ignore any other files or directories you want to exclude
+
