@@ -6,8 +6,11 @@ import csv
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+# main.py
 
 app = FastAPI()
+
+templates = Jinja2Templates(directory="templates")
 
 @app.get("/")
 def read_root(request: Request):
